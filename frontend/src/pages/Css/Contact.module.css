@@ -1,0 +1,125 @@
+.contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.banner {
+  width: 100%;
+  height: clamp(200px, 40vh, 400px);
+  border-radius: 12px;
+}
+.banner > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.form_holder {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  background: white;
+  padding: clamp(2rem, 4vw, 4rem);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.form_left {
+  position: relative;
+  background-color: rgba(var(--primaryColor), 0.8);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: 10px;
+  color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+.form_left::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.1) 60%,
+    transparent 80%
+  );
+  animation: shimmer 8s linear infinite;
+}
+@keyframes shimmer {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.form_left > h4 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.form_left > p {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  opacity: 0.9;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+}
+.form_left > p:nth-child(2) {
+  font-weight: 400;
+}
+.form_right > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+form > input,
+form > textarea {
+  width: 100%;
+  padding: clamp(0.8rem, 1.5vw, 1rem);
+  border: 1px solid var(--borderGrey);
+  border-radius: 8px;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  transition: border-color 0.3s ease;
+  resize: none;
+}
+form > button {
+  padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: 8px;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  width: 40%;
+  transition: transform 0.2s ease;
+}
+.form_holder button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .form_holder {
+    grid-template-columns: 1fr;
+    margin-top: 10rem;
+  }
+  .form_left {
+    padding: clamp(1.5rem, 4vw, 2rem);
+  }
+  .form_holder button {
+    width: 100%;
+}
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: clamp(150px, 30vh, 200px);
+  }
+}

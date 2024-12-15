@@ -1,0 +1,138 @@
+.add_doctor {
+  width: 100%;
+  margin: 0 auto 100px;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+.add_doctor > h1 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  position: absolute;
+  top: 10px;
+}
+.add_doctor > form {
+  margin-top: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.image_upload {
+  width: clamp(130px, 10vw, 140px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 2vw;
+}
+.image_upload img {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px dashed var(--borderGrey);
+}
+.image_upload > figcaption {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: var(--greyText);
+  width: 100%;
+}
+.inputs_holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.holder_left,
+.holder_right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.name,
+.email,
+.password,
+.fees,
+.specialty,
+.degree,
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.name > label,
+.email > label,
+.password > label,
+.fees > label,
+.specialty > label,
+.degree > label,
+.address > label {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #444;
+}
+
+.name > input,
+.email > input,
+.password > input,
+.fees > input,
+.experience > select,
+.specialty > select,
+.degree > input,
+.address > input,
+.text_area > textarea {
+  padding: clamp(0.5rem, 1.5vw, 0.75rem);
+  border: 1px solid var(--borderGrey);
+  border-radius: 0.5rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  background-color: white;
+  width: 100%;
+}
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.text_area {
+  width: 100%;
+}
+.text_area > textarea {
+  width: 100%;
+  resize: none;
+  min-height: 100px;
+}
+form > button {
+  width: fit-content;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border-radius: 0.5rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  transition: transform 0.3s ease;
+}
+.add_doctor button:hover {
+  transform: translateY(-2px);
+}
+select:focus {
+  border-color: rgb(var(--primaryColor));
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 768px) {
+  .inputs_holder {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .add_doctor {
+    padding: 1rem;
+  }
+  .add_doctor > h1 {
+    display: none;
+  }
+  form> button{
+    width: 100%;
+  }
+}

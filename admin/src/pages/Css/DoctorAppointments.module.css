@@ -1,0 +1,122 @@
+.doctor_appointments {
+  width: 100%;
+  padding: clamp(1rem, 2vw, 2rem);
+}
+.doctor_appointments > h1 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: #333;
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+}
+.list_holder {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.list_title {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 0.8fr 1.5fr 0.8fr 0.8fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(var(--primaryColor), 0.15);
+  border-bottom: 1px solid #eee;
+}
+.list_title >p {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 500;
+  color: #666;
+}
+.appointment_card {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 0.8fr 1.5fr 0.8fr 0.8fr;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.appointment_card:last-child {
+  border-bottom: none;
+}
+.appointment_card > p {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #333;
+}
+.card_img_holder {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.card_img_holder > img {
+  width: clamp(2rem, 4vw, 2.5rem);
+  height: clamp(2rem, 4vw, 2.5rem);
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card_img_holder > figcaption {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #333;
+}
+.action_imgs_holder >img {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+
+.red {
+  color: #ff4d4f !important;
+}
+.green {
+  color: #52c41a !important;
+}
+
+@media (max-width: 768px) {
+  .list_title {
+    display: none;
+  }
+  .appointment_card {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .appointment_card > p {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .appointment_card > p::before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #666;
+  }
+  .card_img_holder {
+    grid-column: 1/-1;
+    padding: 0.5rem 0;
+  }
+  .action_imgs_holder > img {
+    justify-self: start;
+    grid-column: 1/-1;
+    margin-top: 0.5rem;
+  }
+  .appointment_card  p:first-child {
+    justify-self: end;
+    padding-right: 1rem;
+  }
+  .red,
+  .green {
+    grid-column: 1/-1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor_appointments {
+    padding: 0.75rem;
+  }
+  .card_img_holder {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

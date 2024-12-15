@@ -1,0 +1,18 @@
+.app {
+    margin: 0 auto;
+    max-width: 1550px;
+    position: relative;
+    display: flex;
+  }
+  
+  @media (min-width: 1600px) {
+    body {
+      background-color: var(--background-color);
+    }
+    .app {
+      padding-left: calc((40vw - 1700px) / 2);
+      padding-right: calc((40vw - 1700px) / 2);
+      max-width: 1550px;
+    }
+  }
+  

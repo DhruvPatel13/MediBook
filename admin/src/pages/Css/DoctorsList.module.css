@@ -1,0 +1,105 @@
+.list_page {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+.list_page > h1 {
+  text-align: left;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  margin: 1rem 0;
+}
+.card_holder {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  padding-bottom: 2rem;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: grid;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card > .card_img_holder {
+  min-height: 150px;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.card_img_holder > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: rgba(var(--primaryColor), 0.5);
+  transition: transform 0.3s ease, background-color 0.4s ease;
+}
+.card:hover .card_img_holder > img {
+  transition: transform 0.3s ease, background-color 0.4s ease;
+  transform: scale(1.05);
+  background-color: rgba(var(--primaryColor), 0.7);
+}
+.text_holder {
+  text-align: center;
+  padding: clamp(0.8rem, 2vw, 1.2rem);
+}
+.text_holder > p {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 600;
+}
+.text_holder > span {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: var(--greyText);
+  display: block;
+  margin-top: 0.5rem;
+}
+.input_holder {
+  align-self: end;
+  padding: clamp(0.8rem, 2vw, 1.2rem);
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.input_holder > input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #22c55e;
+}
+.input_holder > label {
+  font-size: clamp(0.705rem, 1.4vw, 1rem);
+  color: #22c55e;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .card_holder {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 530px) {
+  .list_page > h1 {
+    display: none;
+  }
+  .input_holder > input[type="checkbox"] {
+    height: 12px;
+    width: 12px;
+  }
+  .card_holder {
+    margin-top: 25px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    column-gap: 5px;
+  }
+}
+
+/* active classes */
+.input_holder > label.active {
+  color: red;
+}

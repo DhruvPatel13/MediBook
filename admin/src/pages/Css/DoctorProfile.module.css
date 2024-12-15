@@ -1,0 +1,164 @@
+.doctors_profile {
+  width: 100%;
+  padding: clamp(1rem, 5vw, 2rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.doc_info_wrapper {
+  width: clamp(300px, 90%, 900px);
+  background: white;
+  border-radius: 20px;
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+.doc_img_wrapper {
+  margin: 0 0 2rem 0;
+  width: clamp(200px, 30vw, 250px);
+  height: clamp(200px, 30vw, 250px);
+  background-color: rgba(var(--primaryColor), 0.6);
+  border-radius: 15px;
+}
+.doc_img_wrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.doc_info {
+  margin-bottom: 2.5rem;
+}
+.doc_info > h2 {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.doc_info > h2 + span {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--greyText);
+  margin-bottom: 1rem;
+}
+.doc_info > span:last-child {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: #6b7aff;
+  background: rgba(var(--primaryColor), 0.1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  display: inline-block;
+  margin-left: 5px;
+}
+.doc_desc {
+  margin-bottom: 2.5rem;
+}
+.doc_fees,
+.doc_address {
+  margin-bottom: 2rem;
+}
+.doc_fees > span,
+.doc_address > span,
+.doc_desc > span {
+  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+}
+.doc_fees > p,
+.doc_address > p,
+.doc_desc > p {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--greyText);
+}
+
+.doc_fees > input,
+.doc_address > input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--borderGrey);
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  color: #2d3142;
+  transition: all 0.2s ease;
+  background: #f8f9ff;
+  margin-bottom: 1rem;
+}
+.doc_status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.doc_status > input[type="checkbox"] {
+  width: clamp(18px, 1vw, 22px);
+  height: clamp(18px, 1vw, 22px);
+  border: 2px solid var(--borderGrey);
+  border-radius: 6px;
+  cursor: pointer;
+  accent-color: #6b7aff;
+}
+.doc_status > label {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.doc_info_wrapper > button {
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  transition: transform 0.2s ease;
+  width: fit-content;
+}
+button:hover {
+  transform: translateY(-2px);
+}
+.btn_green {
+  background-color: rgba(144, 238, 144, 0.685);
+}
+.btn_green:hover {
+  background-color: lightgreen;
+  transform: translateY(-2px);
+}
+
+/* Animation for input/p tag switching */
+.doc_fees > p,
+.doc_fees > input,
+.doc_address > p,
+.doc_address > input {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .doc_info_wrapper {
+    padding: 1.5rem;
+  }
+  .doc_img_wrapper {
+    margin-bottom: 3vh;
+  }
+  .doc_info > h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .doc_fees,
+  .doc_address {
+    margin-bottom: 1.5rem;
+  }
+
+  .doc_info_wrapper > button {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}

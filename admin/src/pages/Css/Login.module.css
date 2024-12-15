@@ -1,0 +1,82 @@
+.login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+.login_form {
+  background-color: white;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: clamp(280px, 90%, 420px);
+  animation: fadeIn 0.3s ease-in;
+}
+.login_form > p {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+.login_form > p > span {
+  color: rgb(var(--primaryColor));
+}
+.email,
+.password {
+  margin-bottom: 1.5rem;
+}
+.email > label,
+.password > label {
+  display: block;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+.email > label > input,
+.password > label > input[id="pass"] {
+  width: 100%;
+  padding: clamp(0.5rem, 2vw, 0.75rem);
+  border: 2px solid var(--borderGrey);
+  border-radius: 6px;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  transition: border-color 0.2s;
+}
+.email input:focus,
+.password input[id="pass"]:focus {
+  outline: none;
+  border-color: rgb(var(--primaryColor));
+}
+.password label:last-child {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: var(--greyText);
+}
+.password input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: rgb(var(--primaryColor));
+}
+
+.login_form > button {
+  width: 100%;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border-radius: 6px;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  margin-bottom: 1rem;
+}
+.login_form > p:last-child {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: var(--greyText);
+  text-align: center;
+  margin-bottom: 0;
+}
+.login_form > p:last-child > span {
+  color: rgba(var(--primaryColor), 0.8);
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: normal;
+}
+.login_form > p:last-child span:hover {
+  color: rgba(var(--primaryColor));
+}

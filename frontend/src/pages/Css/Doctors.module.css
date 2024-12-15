@@ -1,0 +1,184 @@
+.doctors {
+  padding: 0 0 clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  margin-top: 2vw;
+  display: flex;
+  gap: 10px;
+}
+
+/* filter  */
+.filter_holder {
+  position: relative;
+}
+.filter_holder > .filter_title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 0 0.75rem;
+  width: 100%;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 500;
+  cursor: pointer;
+}
+.filter_title > img {
+  transition: transform 0.5s ease, width 0.4s ease;
+  width: clamp(25px, 5vw, 45px);
+}
+.filter {
+  background-color: white;
+  border: 1px solid rgba(var(--primaryColor), 0.5);
+  border-radius: 12px;
+  padding: clamp(1rem, 1.5vw, 1.5rem);
+  width: clamp(200px, 20vw, 280px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.filter > p {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--greyText);
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+.filter > p:hover {
+  background-color: rgba(var(--primaryColor), 0.04);
+  color: rgb(var(--primaryColor));
+}
+.filter > p.active {
+  background-color: rgba(var(--primaryColor), 0.7);
+  color: white;
+}
+.card_holder {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: auto;
+}
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: clamp(1rem, 1.5vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--borderGrey);
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(var(--primaryColor), 0.5);
+}
+.card img {
+  height: clamp(160px, 22vw, 220px);
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  background-color: rgba(var(--primaryColor), 0.4);
+}
+.available_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f0fdf4; /* green */
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 0.25rem 0;
+}
+.available_wrapper > span {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+.available_wrapper > p {
+  font-size: 0.875rem;
+  color: #22c55e;
+}
+.card > strong {
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+}
+.card > p {
+  color: var(--greyText);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+.card:hover > strong {
+  background: rgb(var(--primaryColor));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+@media (max-width: 1120px) {
+  .card_holder {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 790px) {
+  .doctors {
+    flex-direction: column;
+  }
+  .filter_holder > .filter_title {
+    justify-content: center;
+  }
+  .filter {
+    visibility: hidden;
+    height: 0;
+    opacity: 1;
+    width: 100%;
+    padding: 0;
+    transition: height 0.5s ease, opacity 0.6s ease-in-out;
+  }
+  .filter.active {
+    visibility: visible;
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+    opacity: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    height: 28vh;
+    transition: height 0.5s ease, opacity 0.6s ease-in-out;
+  }
+  .card {
+    padding: clamp(0.5rem, 1vw, 1rem);
+  }
+  .card img {
+    height: clamp(140px, 40vw, 180px);
+  }
+  .available_wrapper {
+    padding: 0.25rem 0.75rem;
+  }
+}
+@media (max-width: 550px) {
+  .card_holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .filter.active {
+    grid-template-columns: 1fr;
+    text-align: left;
+    height: 52vh;
+  }
+}
+
+/* active classes */
+.available_wrapper.red {
+  background-color: rgba(255, 0, 0, 0.04);
+}
+.available_wrapper > span.red {
+  background-color: rgba(255, 0, 0, 0.7);
+  box-shadow: 0 0 0 2px rgba(197, 34, 34, 0.2);
+}
+.available_wrapper > p.red {
+  color: rgba(255, 0, 0, 0.7);
+}
+.filter_title > img.active {
+  width: clamp(20px, 3vw, 30px);
+  transform: rotate(90deg);
+  transition: transform 0.5s ease, width 0.4s ease;
+}
