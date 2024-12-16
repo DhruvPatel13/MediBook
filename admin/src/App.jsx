@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar/Navbar";
@@ -16,18 +16,16 @@ import { useAdminContext } from "./context/AdminContext";
 import { useDoctorContext } from "./context/DoctorContext";
 
 const App = () => {
-  const { aToken, dasData } = useAdminContext();
-  const { dToken, appointments } = useDoctorContext();
+  const { aToken } = useAdminContext();
+  const { dToken } = useDoctorContext();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!appointments || !dasData) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [dasData, appointments]);
+    window.onload = () => setLoading(false);
+    document.body.style.overflow = loading ? "hidden" : "auto";
+  }, [loading]);
 
-  if (!appointments && !dasData) return <Spinner />;
+  if (loading) return <Spinner />;
 
   return aToken || dToken ? (
     <>
